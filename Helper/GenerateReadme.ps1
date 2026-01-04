@@ -1,5 +1,5 @@
-$RepoRawUrl             = "https://raw.githubusercontent.com/ThomasKur/WPNinjas_Sentinel/main"
-$RepoUrl                = "https://github.com/ThomasKur/WPNinjas_Sentinel/blob/main"
+$RepoRawUrl             = "https://raw.githubusercontent.com/ThomasKur/Sentinel-And-DefenderXDR/main"
+$RepoUrl                = "https://github.com/ThomasKur/Sentinel-And-DefenderXDR/blob/main"
 $MainReadmeTemplate     = Get-Content -Path .\Helper\Templates\Main-Readme.md
 
 #region LogicApp / Extend
@@ -34,6 +34,29 @@ foreach($bicepLaExtFile in $bicepLaExtFiles){
 }
 
 $MainReadmeTemplate = $MainReadmeTemplate.Replace("%MainReadmeTableLaExt%",$MainReadmeTableLaExt)
+
+#endregion
+
+#region Detections
+
+$MainReadmeTableDetections   = "| Name | Category |" + [System.Environment]::NewLine
+$MainReadmeTableDetections  += "| --- | --- |" + [System.Environment]::NewLine
+
+$DetectionFolders = Get-ChildItem -Path .\Detections -Directory
+
+foreach($DetectionFolder in $DetectionFolders){
+    $DetectionFiles = Get-ChildItem -Path $DetectionFolder.FullName -Filter "*.md"
+    
+    foreach($DetectionFile in $DetectionFiles){
+        $Title          = $DetectionFile.BaseName
+        $TitleLink      = "[$Title](" + $RepoUrl + $DetectionFile.FullName.Replace((Get-Location).Path,"").Replace("\","/") + ")"
+        $Category       = $DetectionFolder.Name
+        
+        $MainReadmeTableDetections  += "| $TitleLink | $Category |" + [System.Environment]::NewLine
+    }
+}
+
+$MainReadmeTemplate = $MainReadmeTemplate.Replace("%MainReadmeTableDetections%",$MainReadmeTableDetections)
 
 #endregion
 
