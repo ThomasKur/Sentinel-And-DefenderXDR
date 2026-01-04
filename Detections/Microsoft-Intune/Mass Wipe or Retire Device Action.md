@@ -11,7 +11,17 @@
 
 ### Description
 
+Detects unusual spikes of Intune wipe or retire actions across multiple managed devices in a short window. A compromised admin, insider abuse, or malicious automation can trigger mass device wipes, leading to data destruction or denial of service. Aligns to **T1072 (Software Deployment Tools)** for abuse of management tooling and **T1485 (Data Destruction)** when wiping/retiring is used to remove assets or evidence.
 
+Use this to spot:
+
+- Admin or service accounts issuing bulk wipe/retire commands beyond expected operational volumes.
+- Abuse of delegated or break-glass accounts to disrupt device fleet availability.
+- Automated scripts or compromised API credentials initiating high-volume retire/wipe actions.
+
+Before enabling, confirm your baseline for legitimate bulk operations (e.g., device refresh projects) and tune the threshold `WipeThreashold` accordingly.
+
+Blog: <https://medium.com/@kurtli_thomas/detecting-threats-when-attackers-exploit-management-tools-microsoft-intune-71823956630d>
 
 ### Author
 
