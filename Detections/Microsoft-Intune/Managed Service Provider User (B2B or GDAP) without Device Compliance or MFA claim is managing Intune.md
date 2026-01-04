@@ -15,6 +15,8 @@ This detection monitors Managed Service Provider (MSP) and delegated admin acces
 **Important:** Before enabling this detection, verify your current MSP/GDAP providers and ensure they support [cross-tenant access](https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-overview) policy configurations. Providers that cannot meet these security requirements should either be whitelisted with appropriate justification or removed from your trusted service provider list.
 Mapped to MITRE ATT&CK **T1072 - Software Deployment Tools**, as Intune MSPs typically have broad deployment capabilities.
 
+Blog: <https://medium.com/@kurtli_thomas/detecting-threats-when-attackers-exploit-management-tools-microsoft-intune-71823956630d>
+
 ### Author
 
 - **Name: Thomas Kurth**

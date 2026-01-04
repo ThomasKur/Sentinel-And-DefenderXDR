@@ -14,6 +14,8 @@ Detects when users exhibiting risky behavior use Intune's Software Deployment To
 
 The recommended severity level for this detection is low or medium as mass deployments can be as well a normal operational action.
 
+Blog: <https://medium.com/@kurtli_thomas/detecting-threats-when-attackers-exploit-management-tools-microsoft-intune-71823956630d>
+
 ### Author
 
 - **Name: Thomas Kurth**

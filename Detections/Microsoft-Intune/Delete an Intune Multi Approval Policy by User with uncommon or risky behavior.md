@@ -12,6 +12,8 @@
 
 Detects deletion of Intune multi-approval policies by users exhibiting risky behavior, mapped to Software Deployment Tools (T1072). Typically informational/operational, but if an attacker persuades another admin to approve deletion, it removes safeguards and can enable unauthorized app or script deployment. Triggers when Medium/High risk users, suspicious behaviors (impossible travel, unusual locations, suspicious admin activity), or delegated admins perform the deletion.
 
+Blog: <https://medium.com/@kurtli_thomas/detecting-threats-when-attackers-exploit-management-tools-microsoft-intune-71823956630d>
+
 ### Author
 
 - **Name: Thomas Kurth**
